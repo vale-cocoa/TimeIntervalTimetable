@@ -15,7 +15,7 @@ import Foundation
 /// `rate` value of `3600.0` and a `duration` value of `900.0`, there will be elements lasting
 ///  15 minutes each and starting every hour before, on and after
 ///   `Date(timeIntervalSinceReferenceDay: 0)`.
-struct TimeIntervalTimetable {
+public struct TimeIntervalTimetable {
     /// Errors thrown by this type.
     public enum Error: Swift.Error {
         /// The given `duration` parameter was wider than the given `rate` one.

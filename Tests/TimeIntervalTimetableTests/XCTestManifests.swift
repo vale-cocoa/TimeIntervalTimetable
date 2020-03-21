@@ -4,6 +4,9 @@ import XCTest
 public func allTests() -> [XCTestCaseEntry] {
     return [
         testCase(TimeIntervalTimetableTests.allTests),
+        testCase(TimeIntervalTimetableCustomStringConvertibleTests.allTests),
+        testCase(TimeIntervalTimetableWebAPITests.allTests),
+        
     ]
 }
 #endif
