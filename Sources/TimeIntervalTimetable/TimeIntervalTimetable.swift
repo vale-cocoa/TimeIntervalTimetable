@@ -23,6 +23,10 @@ public struct TimeIntervalTimetable {
         
         /// Given date components are invalid for calculating the distance from reference date.
         case invalidDateComponents
+        
+        case dateCalculationError
+        
+        case timeout
     }
     
     /// The rate at which every element of the timetable occurs in time.
@@ -55,8 +59,8 @@ public struct TimeIntervalTimetable {
     ///  timetable is to seconds.
     public init(rate: TimeInterval, duration: TimeInterval) throws
     {
-        let roundedRate = abs(rate.rounded(.towardZero))
-        let roundedDuration = abs(duration.rounded(.towardZero))
+        let roundedRate = abs(rate.rounded(.toNearestOrAwayFromZero))
+        let roundedDuration = abs(duration.rounded(.toNearestOrAwayFromZero))
         guard
             roundedDuration <= roundedRate
             else { throw Error.durationWiderThanRate }

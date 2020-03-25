@@ -64,7 +64,8 @@ extension TimeIntervalTimetable: Codable {
 fileprivate struct _WebAPITimeIntervalTimetable: Codable {
     let rate: [String : Int]
     let duration: [String : Int]
-    var dateComponents: (rate: DateComponents, duration: DateComponents) {
+    var dateComponents: (rate: DateComponents, duration: DateComponents)
+    {
         let rateDC = Self._dictToDateComponents(dictionary: self.rate)
         let durationDC = Self._dictToDateComponents(dictionary: self.duration)
         
@@ -85,7 +86,9 @@ fileprivate struct _WebAPITimeIntervalTimetable: Codable {
         case seconds
     }
     
-    private static func _dateComponentsToDict(_ dc: DateComponents) -> [String:Int] {
+    private static func _dateComponentsToDict(_ dc: DateComponents)
+        -> [String : Int]
+    {
         var dict = [String : Int]()
         
         for component in TimeIntervalTimetable._dateComponentsSet {
@@ -116,12 +119,18 @@ fileprivate struct _WebAPITimeIntervalTimetable: Codable {
         return dict
     }
     
-    private static func _dictToDateComponents(dictionary: [String:Int]) -> DateComponents {
+    private static func _dictToDateComponents(
+        dictionary: [String : Int]
+    )
+        -> DateComponents
+    {
         var dc = DateComponents()
         dc.calendar = Calendar.current
         for key in dictionary.keys {
             var component: Calendar.Component!
-            guard let dictionaryKey = _DictionaryCodingKeys(rawValue: key) else { continue }
+            guard
+                let dictionaryKey = _DictionaryCodingKeys(rawValue: key)
+                else { continue }
             
             switch dictionaryKey {
             case .years:
@@ -142,4 +151,5 @@ fileprivate struct _WebAPITimeIntervalTimetable: Codable {
         
         return dc
     }
+    
 }

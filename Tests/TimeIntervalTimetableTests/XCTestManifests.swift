@@ -6,6 +6,7 @@ public func allTests() -> [XCTestCaseEntry] {
         testCase(TimeIntervalTimetableTests.allTests),
         testCase(TimeIntervalTimetableCustomStringConvertibleTests.allTests),
         testCase(TimeIntervalTimetableWebAPITests.allTests),
+        testCase(TimeIntervalTimetableScheduleTests.allTests),
         
     ]
 }

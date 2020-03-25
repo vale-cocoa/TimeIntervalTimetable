@@ -49,8 +49,8 @@ final class TimeIntervalTimetableTests: XCTestCase {
         // given
         let rate = TimeInterval.random(in: 1.0...60.0)
         let duration = rate - 1.0
-        let expectedRate = rate.rounded(.towardZero)
-        let expectedDuration = duration.rounded(.towardZero)
+        let expectedRate = rate.rounded(.toNearestOrAwayFromZero)
+        let expectedDuration = duration.rounded(.toNearestOrAwayFromZero)
         
         // when
         let timetable = try! TimeIntervalTimetable(rate: rate, duration: duration)
